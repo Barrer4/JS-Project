@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>¡¡TEST!!</title>
+	<link rel="stylesheet" href="./style1.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body id="searchPage">
+	
+
+<main>
+
+<section class="search">
+	<div class= "search__container">    
+		<input id="data__search" type="text" onkeypress="enter()" class="input" placeholder="Search...">
+		<button id="lens"class="button button--xs"  onclick="show()"><i class="fa fa-fw fa-search"></i></button>
+		<button class="button button--xs" onclick="(document.getElementById('data__search').value = '')"><i></i>Clear</button>
+		<button class="button fav--btn" id="ensenyar">My favorites</button>
+	</div>
+</section>
+
+
+<section class="section">
+		<div id="favList"></div>
+		<div id="results__container" class="card__container" >	
+	</div>	
+</section>
+
+
+<section class="newsletter">
+	<div class="news__container">
+			  <h3 class="news__title">Don't miss anything!</h3>
+			  <p class="news__p">Subscribe to our newsletter and easily find out about all the news and events.</p>
+		<div class="n__container">
+			  <input type="text" placeholder="Name" name="name" required>
+			  <input type="text" placeholder="Email address" name="mail" required>
+			  <label class="checkbox__container">
+				 <input type="checkbox" checked="checked" name="subscribe"> Weekly Newsletter
+				 <span class="checkmark"></span>
+			  </label>
+			  <input type="submit" value="Subscribe">
+			</div>
+	</div>
+</section>
+
+
+</main>
+
+<footer>Website powered by the James Harris & rocktimsaikia APIs</footer>
+
+</body>
+
+
+
+<script src="./test.js"></script>
+</html>
