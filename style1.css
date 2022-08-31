@@ -1039,11 +1039,14 @@ footer {
 	
 }
 
-@media screen and (max-width: 1499px) {
+@media screen and (max-width: 1530px) {
 	.card__container-2 {
 	display: block;
 	justify-content: center;
 	margin-top: 1.5rem;
+	row-gap: 10px;
+	justify-content: space-between;
+	align-content: space-around;
 	}
 }
 .card-2 {
@@ -1118,12 +1121,12 @@ button[id^="card-"][id$="btn"]{
 	padding: auto;
 	height: auto;
 	display: grid;
-	margin: 80px auto;
+	margin:80px auto;
 	align-content: center;
 	border: 2px black solid;
 }
 
-@media screen and (max-width: 1015px) {
+@media screen and (max-width: 720px) {
 	.search {
 		width: 100%;
 		margin: auto;
@@ -1139,7 +1142,13 @@ button[id^="card-"][id$="btn"]{
 	border: red 2px solid;
 }
 
+@media screen and (max-width: 1057px) {
+	.search__container {
+	justify-content: center;
 
+	
+	}
+}
 
 /* Style the search box inside the search container*/
 .search__container input[type=text] {

@@ -1,19 +1,16 @@
 //variables
-let searchHome = document.getElementById("home")
+let searchHome = document.getElementById('home')
 let ulTag = document.getElementById('pagination')
 let totalPages = 20
 
 let userSearch = document.getElementById('lens')
 let clearSearch = document.getElementById('clear-btn')
 let responsiveNav = document.getElementById('navIcon')
-//Instanciate the Classes
-
-//Create the Event Listeners
 
 
-
+//Add event listener if # appears
 function runAll() {
-	//Add event listener if # appears
+
 
 	if (searchHome) {
 		pagination(totalPages, 1)
@@ -26,8 +23,8 @@ function runAll() {
 		userSearch.addEventListener('click', showSearchResults)
 	}
 }
-
 runAll();
+
 
 
 
@@ -149,15 +146,15 @@ function createCard(anime, index) {
 	<div id=card-${index} class="flip-card card">
 		<div class="flip-card-inner">
 		<div class="card__face flip-card-front">
-			<img class="card__img" src="${anime.attributes.posterImage['small']}" alt="${anime.attributes.titles['en']}" data-image="${anime.attributes.posterImage['small']}" height=350px/>     
+			<img class="card__img" src="${anime.attributes.posterImage['small']}" alt="${anime.attributes.canonicalTitle}" data-image="${anime.attributes.posterImage['small']}" height=350px/>     
 		</div>
 		<div class="card__face flip-card-back">
 			<h4 class="card__title">
-				${anime.attributes.titles['en']}
+				${anime.attributes.canonicalTitle}
 			</h4>
 			<p class="avg-rat">
                Rating: ${anime.attributes.averageRating[0]}/10</p>
-			<button id="card-${index}-btn"  value="(${anime.attributes.titles['en']})" onclick="addFav()" class="button" style="bottom:6px">Add to favorites</button>
+			<button id="card-${index}-btn"  value="(${anime.attributes.canonicalTitle})" class="button" style="bottom:6px">Add to favorites</button>
 		</div>
 	</div>
 	</div>
@@ -200,14 +197,14 @@ function showSearchResults() {
 function searchResults(cardFound, i) {
 	return `
 	<div id=${cardFound[i].id} class="card-2">
-	<button id="card-${i}-btn"  value="(${cardFound[i].attributes.titles['en']})" class="fav--btn2" onclick="addFav(${cardFound[i].id}, ${cardFound[i].attributes.posterImage['small']}, ${cardFound[i].attributes.titles['en']}, ${cardFound[i].attributes.description})"><i id="star-btn"class="fa fa-fw fa-star-o" onclick="changeIcon(this)"></i></button>
+	<button id="card-${i}-btn"  value="(${cardFound[i].attributes.canonicalTitle})" class="fav--btn2" onclick="addFav(${cardFound[i].id})"><i id="star-btn"class="fa fa-fw fa-star-o" onclick="changeIcon(this)"></i></button>
 		<div class="flip-card-inner-2">
 			<div class="flip-card-front-2">
-				<img class="card2__img" src="${cardFound[i].attributes.posterImage['small']}" alt="${cardFound[i].attributes.titles['en']}" data-image="${cardFound[i].attributes.posterImage['small']}" height=350px/>	  
+				<img class="card2__img" src="${cardFound[i].attributes.posterImage['small']}" alt="${cardFound[i].attributes.canonicalTitle}" data-image="${cardFound[i].attributes.posterImage['small']}" height=350px/>	  
 			</div>
 			<div class="flip-card-back-2">
 				<h4 class="card__title">
-					${cardFound[i].attributes.titles['en']}
+					${cardFound[i].attributes.canonicalTitle}
 				</h4>
 				<p class="card__description">
 					${cardFound[i].attributes.description}
@@ -229,45 +226,56 @@ function changeIcon(icon) {
 	}
 }
 
-function addFav(id, image, title, description) {
+function addFav(id) {
+
+	fetch(`https://kitsu.io/api/edge/anime?filter[id]=${id}`)
+		.then((response) => response.json())
+		.then((divAttributes) => {
+			divContent = divAttributes.data
+			console.log(divContent)
+
+			let favorite = {
+				id: divContent.id
+			}
+
+	console.log(favorite)
+
+
+	console.log(id)
 	let divId = document.getElementById(id)
 	if (!divId.classList.contains('is-favorite')) {
 		divId.classList.add('is-favorite')
 	} else {
 		divId.classList.remove('is-favorite')
 	}
+	console.log(divId.classList)
 
-	let favorite = {
-		ids: id,
-		images: image,
-		titles: title,
-		descriptions: description
-	}
+	
+	
+})}
+			/*
 
-	console.log(favorite)
-
-	/*
-	fetch(`https://kitsu.io/api/edge/anime?filter[id]=${divId}`)
+			fetch(`https://kitsu.io/api/edge/anime?filter[text]=${userInput}`)
 		.then((response) => response.json())
-		.then((idAttributes) => {
-			content = idAttributes.data
+		.then((userResults) => {
+			userList = userResults.data
 
 
 
-			let favoriteCard = {
-				id: content.id,
-				title: content.attributes.titles['en'],
-				conclusion: 'esto no sirve'
-			}
-				
 
-					favoriteCard[id]
-			console.log(favoriteCard)
-		})
-*/
+			let favorite = {}
+			favorite.id = content.id
+			favorite.description = content.attributes.description
+		
+			console.log(favorite)
+			})
+			*/
+		
+	
 
 
-}
+
+	
 
 
 
@@ -294,10 +302,11 @@ function enter(event) {
 }
 
 function clear() {
+	
 	var input = document.getElementById('data__search')
 	input.value = ''
 	var content = document.getElementById('results__container')
-	content.id = ''
+	content.innerHTML = ''
 }
 function fetchAnime() {
 	let randomNum = Math.floor(Math.random() * (14000 - 1) + 1)
@@ -311,7 +320,7 @@ function fetchAnime() {
 
 			let image = `
 					 <div>
-					 <img class="img__container" src="${list.attributes.posterImage['small']}" alt="${list.attributes.titles['en']}" height=350px/>
+					 <img class="img__container" src="${list.attributes.posterImage['small']}" alt="${list.attributes.canonicalTitle}" height=350px/>
 					 <div>`
 
 			document.getElementById('i__container').innerHTML = image
