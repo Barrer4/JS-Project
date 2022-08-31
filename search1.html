@@ -22,8 +22,7 @@
 			<a class="active" href="./search1.html"><i class="fa fa-fw fa-search"></i>Search</a>
 			<a href="./about.html">About</a>
 			<a class="split" href="./contact.html">Contact</a>
-			<a class="header__menu-link icon" href="javascript:void(0);"><i class="fa fa-bars"
-					onclick="myFunction()"></i></a>
+			<a id="navIcon" class="header__menu-link icon" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
 		</nav>
 	</header>
 
@@ -32,7 +31,7 @@
 		<section class="search">
 			<div class="search__container">
 				<input id="data__search" type="text" onkeypress="enter()" class="input" placeholder="Search...">
-				<button id="lens" class="button button--xs" onclick="show()"><i class="fa fa-fw fa-search"></i></button>
+				<button id="lens" class="button button--xs"><i class="fa fa-fw fa-search"></i></button>
 				<button class="button button--xs"
 					onclick="(document.getElementById('data__search').value = '')"><i></i>Clear</button>
 				<button class="button fav--btn" id="ensenyar" onclick="showFav()">My favorites</button>
@@ -51,18 +50,19 @@
 			<div class="news__container">
 				<h3 class="news__title">Don't miss anything!</h3>
 				<p class="news__p">Subscribe to our newsletter and easily find out about all the news and events.</p>
-				
+
 				<div class="n__container">
 					<input type="text" placeholder="Name" name="name" required>
 					<input type="text" placeholder="Email address" name="mail" required>
 					<label class="checkbox__container">
 						<input type="checkbox" checked="checked" name="subscribe"> Weekly Newsletter </label>
-						<span class="checkmark"></span>
-					
-						<button class="button news-btn" value="Subscribe">Submit</button>
+					<span class="checkmark"></span>
+
+					<button class="button news-btn" value="Subscribe">Submit</button>
+				</div>
 		</section>
-				
-			</div>
+
+
 		</section>
 
 		<section class="newsletter-2">
@@ -77,8 +77,6 @@
 				<label class="checkbox__container">
 					<span class="checkmark"></span>
 					<input type="checkbox" checked="checked" name="subscribe"> Weekly Newsletter </>
-
-				
 			</div>
 
 			<button class="button news-btn" value="Subscribe">Submit</button>

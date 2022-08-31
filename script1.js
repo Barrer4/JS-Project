@@ -1,28 +1,34 @@
 //variables
-let searchHome = document.querySelector("#home")
-let ulTag = document.querySelector('ul')
+let searchHome = document.getElementById("home")
+let ulTag = document.getElementById('pagination')
 let totalPages = 20
 
+let userSearch = document.getElementById('lens')
+let clearSearch = document.getElementById('clear-btn')
+let responsiveNav = document.getElementById('navIcon')
 //Instanciate the Classes
 
 //Create the Event Listeners
 
-document.addEventListener('load', runAll)
+
 
 function runAll() {
 	//Add event listener if # appears
 
-
-	
-	
 	if (searchHome) {
 		pagination(totalPages, 1)
 		fetchAnimeQuote()
+	} if (clearSearch) {
+		clearSearch.addEventListener('click', clear)
+	} if (navIcon) {
+		responsiveNav.addEventListener('click', myFunction)
+	} if (userSearch) {
+		userSearch.addEventListener('click', showSearchResults)
 	}
 }
 
-
 runAll();
+
 
 
 //
@@ -94,6 +100,7 @@ function pagination(totalPages, page) {
 
 	ulTag.innerHTML = liTag
 	fetchAnimeCard(page)
+	window.scrollTo(0, 0);
 }
 
 
@@ -162,19 +169,18 @@ document.querySelector('card')
 
 
 //to retrieve search results
-function show() {
+function showSearchResults() {
 	let userInput = document.getElementById('data__search').value
-
+	
 	fetch(`https://kitsu.io/api/edge/anime?filter[text]=${userInput}`)
 		.then((response) => response.json())
 		.then((userResults) => {
 			userList = userResults.data
-			
+
 			let match = ''
 			for (let i = 0; i < userList.length; i++) {
 
-				match += cardResults(userList, i)
-	
+				match += searchResults(userList, i)
 			}
 
 			match != ""
@@ -182,21 +188,19 @@ function show() {
 				: document.getElementById('results__container').innerHTML = (`
 					<div id="notfound" class="notfound">
 						<h3>
-							Ups! There are no matches for your search
+							Oops! There are no matches for your search
 						</h3> 
 						<p>
 							Please, try again.
 						</p>
 					</div>`)
-
-
 		})
 }
 
-function cardResults(cardFound, i) {
+function searchResults(cardFound, i) {
 	return `
-	<div id=${i} class="card-2">
-	<button id="card-${i}-btn""  value="(${cardFound[i].attributes.titles['en']})" onclick="addFav(this.value)" class="fav--btn2"><i class="fa fa-fw fa-star-o"></i></button>
+	<div id=${cardFound[i].id} class="card-2">
+	<button id="card-${i}-btn"  value="(${cardFound[i].attributes.titles['en']})" class="fav--btn2" onclick="addFav(${cardFound[i].id}, ${cardFound[i].attributes.posterImage['small']}, ${cardFound[i].attributes.titles['en']}, ${cardFound[i].attributes.description})"><i id="star-btn"class="fa fa-fw fa-star-o" onclick="changeIcon(this)"></i></button>
 		<div class="flip-card-inner-2">
 			<div class="flip-card-front-2">
 				<img class="card2__img" src="${cardFound[i].attributes.posterImage['small']}" alt="${cardFound[i].attributes.titles['en']}" data-image="${cardFound[i].attributes.posterImage['small']}" height=350px/>	  
@@ -215,8 +219,60 @@ function cardResults(cardFound, i) {
 }
 
 
+function changeIcon(icon) {
+	if (icon.classList.contains('fa-star-o')) {
+		icon.classList.remove('fa-star-o')
+		icon.classList.add('fa-star')
+	} else {
+		icon.classList.remove('fa-star')
+		icon.classList.add('fa-star-o')
+	}
+}
 
- 
+function addFav(id, image, title, description) {
+	let divId = document.getElementById(id)
+	if (!divId.classList.contains('is-favorite')) {
+		divId.classList.add('is-favorite')
+	} else {
+		divId.classList.remove('is-favorite')
+	}
+
+	let favorite = {
+		ids: id,
+		images: image,
+		titles: title,
+		descriptions: description
+	}
+
+	console.log(favorite)
+
+	/*
+	fetch(`https://kitsu.io/api/edge/anime?filter[id]=${divId}`)
+		.then((response) => response.json())
+		.then((idAttributes) => {
+			content = idAttributes.data
+
+
+
+			let favoriteCard = {
+				id: content.id,
+				title: content.attributes.titles['en'],
+				conclusion: 'esto no sirve'
+			}
+				
+
+					favoriteCard[id]
+			console.log(favoriteCard)
+		})
+*/
+
+
+}
+
+
+
+
+
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
 	var x = document.getElementById("myTopnav");
@@ -240,7 +296,7 @@ function enter(event) {
 function clear() {
 	var input = document.getElementById('data__search')
 	input.value = ''
-	var content = document.getElementById('search__container')
+	var content = document.getElementById('results__container')
 	content.id = ''
 }
 function fetchAnime() {
@@ -251,7 +307,7 @@ function fetchAnime() {
 		.then((response) => response.json())
 		.then((characterData) => {
 			list = characterData.data
-			
+
 
 			let image = `
 					 <div>
@@ -302,8 +358,8 @@ if(e.target.classList.contains('fav--btn')){
 function addFav(value){
 
 					if(localStorage.getItem('favorites')){//If there are favourites
-						 var storage = JSON.parse(localStorage['favorites']);
-						 for (var i = 0;i <= storage.length;i++){
+						 let storage = JSON.parse(localStorage['favorites']);
+						 for (let i = 0;i <= storage.length;i++){
 							  if(storage[i] == (userInput.data.id) == -1){//Id already stored, we dont want a duplicate id so ignore
 									console.log('id already stored');
 									break;
@@ -315,7 +371,7 @@ function addFav(value){
 							  }
 						 }
 					}else{//No favourites in local storage, so add new
-						 var favArray= [];
+						 let favArray= [];
 						 favArray.push(userInput.data.id);
 						 localStorage.setItem("favorites", JSON.stringify(favArray));
 						 console.log('New favorites list');

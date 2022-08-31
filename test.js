@@ -238,6 +238,7 @@ function clear() {
 	var content = document.getElementById('search__container')
 	content.id = ''
 }
+
 function fetchAnime() {
 	let randomNum = Math.floor(Math.random() * (14000 - 1) + 1)
 	let list = []
