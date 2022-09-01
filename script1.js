@@ -11,7 +11,6 @@ let responsiveNav = document.getElementById('navIcon')
 //Add event listener if # appears
 function runAll() {
 
-
 	if (searchHome) {
 		pagination(totalPages, 1)
 		fetchAnimeQuote()
@@ -197,7 +196,7 @@ function showSearchResults() {
 function searchResults(cardFound, i) {
 	return `
 	<div id=${cardFound[i].id} class="card-2">
-	<button id="card-${i}-btn"  value="(${cardFound[i].attributes.canonicalTitle})" class="fav--btn2" onclick="addFav(${cardFound[i].id})"><i id="star-btn"class="fa fa-fw fa-star-o" onclick="changeIcon(this)"></i></button>
+	<button id="card-${i}-btn"  value="(${cardFound[i].attributes.canonicalTitle})" class="fav--btn2" onclick="addFav(${cardFound[i].id})"><i id="star-btn"class="fa fa-fw fa-star-o" ></i></button>
 		<div class="flip-card-inner-2">
 			<div class="flip-card-front-2">
 				<img class="card2__img" src="${cardFound[i].attributes.posterImage['small']}" alt="${cardFound[i].attributes.canonicalTitle}" data-image="${cardFound[i].attributes.posterImage['small']}" height=350px/>	  
@@ -216,15 +215,7 @@ function searchResults(cardFound, i) {
 }
 
 
-function changeIcon(icon) {
-	if (icon.classList.contains('fa-star-o')) {
-		icon.classList.remove('fa-star-o')
-		icon.classList.add('fa-star')
-	} else {
-		icon.classList.remove('fa-star')
-		icon.classList.add('fa-star-o')
-	}
-}
+
 
 function addFav(id) {
 
@@ -239,80 +230,39 @@ function addFav(id) {
 				title: favContent[0].attributes.canonicalTitle,
 				description: favContent[0].attributes.description,
 			}
-/*
-			let favorites = JSON.parse(localStorage.getItem('favorites') ||[])
-			
-			let favCheck = favorites.findIndex(function (){
-				return e.id = favInfo.id,
-					e.image = favInfo.image,
-					e.title = favInfo.title,
-					e.description = favInfo.description
-			})
-			console.log(favCheck)
-		})}
-			*/
 
-			let favorites = localStorage.getItem('favorites') ||[]
-         if(favorites.indexOf(favInfo) == -1) {
-            favorites.push(favInfo)
-         } else {
-            favorites.splice(favorites.indexOf(favInfo.id), 1)
-         } 
-         localStorage.setItem('favorites', JSON.stringify(favInfo))
-	})}
-		/*
+		//get star-button
+		let icon = document.getElementById('star-btn')
+
 		// get favorites from local storage or empty array
-		let favorites = localStorage.getItem('favorites') || '[]'
-		favorites = JSON.parse(favorites)
-		
+		let favorites = JSON.parse(localStorage.getItem('favorites') || '[]')
 		let favs = favorites.indexOf(id)
-		 // return if target doesn't have an id (shouldn't happen)
+		
+		// return if target doesn't have an id (shouldn't happen)
 		if (!id) return;
-	 // item is not favorite
+	 
+		// item is not favorite
 	 if (favs == -1) {
 		favorites.push(favInfo);
 		document.getElementById(id).className = 'is-favorite';
+			if(icon.classList.contains('fa-star-o')){
+				icon.classList.remove('fa-star-o')
+				icon.classList.add('fa-star')
+			}
 	 // item is already favorite
 	 } else {
 		favorites.splice(index, 1);
 		document.getElementById(id).className = '';
+		icon.classList.remove('fa-star')
+		icon.classList.add('fa-star-o')
 	 }
+
 	 // store array in local storage
 	 localStorage.setItem('favorites', JSON.stringify(favorites));
-  });*/
+  });
 
-			
-			/*
-				function addFav(value){
 
-					let favInfo = {
-						id: favContent[0].id,
-						image: favContent[0].attributes.posterImage['small'],
-						title: favContent[0].attributes.canonicalTitle,
-						description: favContent[0].attributes.description,
-					}
-
-               if(localStorage.getItem('favorites')){//If there are favourites
-                   let storage = JSON.parse(localStorage['favorites']);
-                   for (let i = 0;i <= storage.length;i++){
-                       if(storage[i] == (userInput.data.id) == -1){//Id already stored, we dont want a duplicate id so ignore
-                           console.log('id already stored');
-                           break;
-                       }
-                       else{//game id doesn't exist in storage so add the id to storage
-                           storage.push(userInput.data.id);
-                           localStorage.setItem('favorites', JSON.stringify(storage));
-                           console.log('must be a new id?');
-                       }
-                   }
-               }else{//No favourites in local storage, so add new
-                   let favArray= [];
-                   favArray.push(userInput.data.id);
-                   localStorage.setItem("favorites", JSON.stringify(favArray));
-                   console.log('New favorites list');
-               }
-				}
-			*/
+		}
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
