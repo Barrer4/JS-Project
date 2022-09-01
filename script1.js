@@ -239,27 +239,80 @@ function addFav(id) {
 				title: favContent[0].attributes.canonicalTitle,
 				description: favContent[0].attributes.description,
 			}
-
-			let favorites = localStorage.getItem('favorites') ||[]
+/*
+			let favorites = JSON.parse(localStorage.getItem('favorites') ||[])
 			
-			let favCheck = favorites.find(function(e){
+			let favCheck = favorites.findIndex(function (){
 				return e.id = favInfo.id,
 					e.image = favInfo.image,
 					e.title = favInfo.title,
 					e.description = favInfo.description
 			})
-			
 			console.log(favCheck)
+		})}
+			*/
+
+			let favorites = localStorage.getItem('favorites') ||[]
+         if(favorites.indexOf(favInfo) == -1) {
+            favorites.push(favInfo)
+         } else {
+            favorites.splice(favorites.indexOf(favInfo.id), 1)
+         } 
+         localStorage.setItem('favorites', JSON.stringify(favInfo))
+	})}
+		/*
+		// get favorites from local storage or empty array
+		let favorites = localStorage.getItem('favorites') || '[]'
+		favorites = JSON.parse(favorites)
+		
+		let favs = favorites.indexOf(id)
+		 // return if target doesn't have an id (shouldn't happen)
+		if (!id) return;
+	 // item is not favorite
+	 if (favs == -1) {
+		favorites.push(favInfo);
+		document.getElementById(id).className = 'is-favorite';
+	 // item is already favorite
+	 } else {
+		favorites.splice(index, 1);
+		document.getElementById(id).className = '';
+	 }
+	 // store array in local storage
+	 localStorage.setItem('favorites', JSON.stringify(favorites));
+  });*/
+
 			
-			console.log(favorites)
-			console.log(localStorage.setItem('favorites', JSON.stringify(favInfo)))
-			console.log(favorites)
-			
-				
-				})}
-			
-			
-			
+			/*
+				function addFav(value){
+
+					let favInfo = {
+						id: favContent[0].id,
+						image: favContent[0].attributes.posterImage['small'],
+						title: favContent[0].attributes.canonicalTitle,
+						description: favContent[0].attributes.description,
+					}
+
+               if(localStorage.getItem('favorites')){//If there are favourites
+                   let storage = JSON.parse(localStorage['favorites']);
+                   for (let i = 0;i <= storage.length;i++){
+                       if(storage[i] == (userInput.data.id) == -1){//Id already stored, we dont want a duplicate id so ignore
+                           console.log('id already stored');
+                           break;
+                       }
+                       else{//game id doesn't exist in storage so add the id to storage
+                           storage.push(userInput.data.id);
+                           localStorage.setItem('favorites', JSON.stringify(storage));
+                           console.log('must be a new id?');
+                       }
+                   }
+               }else{//No favourites in local storage, so add new
+                   let favArray= [];
+                   favArray.push(userInput.data.id);
+                   localStorage.setItem("favorites", JSON.stringify(favArray));
+                   console.log('New favorites list');
+               }
+				}
+			*/
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
