@@ -168,7 +168,7 @@ document.querySelector('card')
 //to retrieve search results
 function showSearchResults() {
 	let userInput = document.getElementById('data__search').value
-	
+
 	fetch(`https://kitsu.io/api/edge/anime?filter[text]=${userInput}`)
 		.then((response) => response.json())
 		.then((userResults) => {
@@ -230,56 +230,36 @@ function addFav(id) {
 
 	fetch(`https://kitsu.io/api/edge/anime?filter[id]=${id}`)
 		.then((response) => response.json())
-		.then((divAttributes) => {
-			divContent = divAttributes.data
-			console.log(divContent)
+		.then((favAttributes) => {
+			favContent = favAttributes.data
 
-			let favorite = {
-				id: divContent.id
+			let favInfo = {
+				id: favContent[0].id,
+				image: favContent[0].attributes.posterImage['small'],
+				title: favContent[0].attributes.canonicalTitle,
+				description: favContent[0].attributes.description,
 			}
 
-	console.log(favorite)
-
-
-	console.log(id)
-	let divId = document.getElementById(id)
-	if (!divId.classList.contains('is-favorite')) {
-		divId.classList.add('is-favorite')
-	} else {
-		divId.classList.remove('is-favorite')
-	}
-	console.log(divId.classList)
-
-	
-	
-})}
-			/*
-
-			fetch(`https://kitsu.io/api/edge/anime?filter[text]=${userInput}`)
-		.then((response) => response.json())
-		.then((userResults) => {
-			userList = userResults.data
-
-
-
-
-			let favorite = {}
-			favorite.id = content.id
-			favorite.description = content.attributes.description
-		
-			console.log(favorite)
+			let favorites = localStorage.getItem('favorites') ||[]
+			
+			let favCheck = favorites.find(function(e){
+				return e.id = favInfo.id,
+					e.image = favInfo.image,
+					e.title = favInfo.title,
+					e.description = favInfo.description
 			})
-			*/
-		
-	
-
-
-
-	
-
-
-
-
+			
+			console.log(favCheck)
+			
+			console.log(favorites)
+			console.log(localStorage.setItem('favorites', JSON.stringify(favInfo)))
+			console.log(favorites)
+			
+				
+				})}
+			
+			
+			
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
@@ -302,7 +282,7 @@ function enter(event) {
 }
 
 function clear() {
-	
+
 	var input = document.getElementById('data__search')
 	input.value = ''
 	var content = document.getElementById('results__container')
@@ -331,60 +311,3 @@ function fetchAnime() {
 
 
 
-
-
-	//Pagination
-
-
-
-/*
-if(e.target.classList.contains('fav--btn')){
-	if(e.target.classList.contains('is-favorite')) {
-		//Remove the class
-		e.target.classList.remove('is-favorite')
-		e.target.textContent = '+'
-	}else{
-		e.target.classList.add('is-favorite');
-		e.target.textContent = '-'
-
-		//Get Info
-		let cardBody = e.target.parentElement
-		console.log(e.target.parentElement)
-
-		//Get info
-		let favInfo = {
-			id: e.target.dataset.id,
-			title: cardBody.querySelector('.result__title').textContent,
-			image: cardBody.querySelector('.result__img').src
-
-		//Add into the storage
-		
-		}
-
-	}
-}
-
-function addFav(value){
-
-					if(localStorage.getItem('favorites')){//If there are favourites
-						 let storage = JSON.parse(localStorage['favorites']);
-						 for (let i = 0;i <= storage.length;i++){
-							  if(storage[i] == (userInput.data.id) == -1){//Id already stored, we dont want a duplicate id so ignore
-									console.log('id already stored');
-									break;
-							  }
-							  else{//game id doesn't exist in storage so add the id to storage
-									storage.push(userInput.data.id);
-									localStorage.setItem('favorites', JSON.stringify(storage));
-									console.log('must be a new id?');
-							  }
-						 }
-					}else{//No favourites in local storage, so add new
-						 let favArray= [];
-						 favArray.push(userInput.data.id);
-						 localStorage.setItem("favorites", JSON.stringify(favArray));
-						 console.log('New favorites list');
-					}
-			  
-			  }
-			  */
