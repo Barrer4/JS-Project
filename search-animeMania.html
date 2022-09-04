@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Anime Mania</title>
+	<link rel="stylesheet" href="./style-animeMania.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+</head>
+
+<body id="searchPage">
+	<header>
+		<nav class="topnav" id="myTopnav">
+			<a href="./home-animeMania.html"> <i class="fa fa-fw fa-home"></i>Home</a>
+			<a class="active" href="./search-animeMania.html"><i class="fa fa-fw fa-search"></i>Search</a>
+			<a class="split" href="./about-animeMania.html">About</a>
+			<a id="navIcon" class="header__menu-link icon" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+		</nav>
+	</header>
+
+	<main>
+
+		<section class="search">
+			<div class="search__container">
+				<input id="data__search" type="text" onkeypress="enter()" class="input" placeholder="Search...">
+				<button id="lens" class="button button--xs"><i class="fa fa-fw fa-search"></i></button>
+				<button id="clear-btn" class="button button--xs">Clear</button>
+				<button class="button fav--btn" id="displayFav" onclick="showFav()">My favorites</button>
+			</div>
+		</section>
+
+		<section>
+			<div id="favorites__container" class="card__container-3"></div>
+		</section>
+
+		<section class="section">
+			<div id="results__container" class="card__container"></div>
+		</section>
+
+	
+		
+
+		
+	
+
+
+	</main>
+
+	<footer>Website powered by the James Harris & rocktimsaikia APIs</footer>
+
+</body>
+
+
+
+<script src="./script-animeMania.js"></script>
+
+</html>
