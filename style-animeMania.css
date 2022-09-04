@@ -1,0 +1,1394 @@
+/*RESET*/
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	-webkit-tap-highlight-color: transparent;
+}
+
+html {
+	overflow: auto;
+}
+
+html,
+body {
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	text-size-adjust: none;
+	height: 100%;
+	background-color: var(--antiquewhite);
+}
+
+li,
+ol {
+	padding: 0;
+	list-style: none;
+}
+
+button {
+	color: inherit;
+	background-color: transparent;
+	padding: 0;
+	border: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+	display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	margin: 0;
+	font-weight: inherit;
+}
+
+figcaption,
+figure,
+main {
+	display: block;
+}
+
+ul {
+	list-style: none;
+}
+
+hr {
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+pre {
+	font-size: 1em;
+}
+
+a {
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline;
+	-webkit-text-decoration: underline dotted;
+	text-decoration: underline dotted;
+}
+
+b,
+strong {
+	font-weight: inherit;
+}
+
+b,
+strong {
+	font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+	font-size: 1em;
+}
+
+dfn {
+	font-style: italic;
+}
+
+mark {
+	background-color: #ff0;
+	color: #000;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+audio,
+video {
+	display: inline-block;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+img {
+	border-style: none;
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+
+button,
+input {
+	overflow: visible;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+
+fieldset {
+	padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+	color: inherit;
+	display: table;
+	max-width: 100%;
+	padding: 0;
+	white-space: normal;
+}
+
+progress {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+textarea {
+	overflow: auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+	padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+details,
+menu {
+	display: block;
+}
+
+summary {
+	display: list-item;
+}
+
+canvas {
+	display: inline-block;
+}
+
+template {
+	display: none;
+}
+
+[hidden] {
+	display: none;
+}
+
+/*FONTS*/
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 200;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaNRs71cA.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 200;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaDRs4.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 300;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaNRs71cA.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 300;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaDRs4.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaNRs71cA.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaDRs4.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 500;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaNRs71cA.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 500;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaDRs4.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 600;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaNRs71cA.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 600;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaDRs4.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaNRs71cA.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaDRs4.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 800;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaNRs71cA.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 800;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaDRs4.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 900;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaNRs71cA.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	font-weight: 900;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXX3I6Li01BKofIMNaDRs4.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 200;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 200;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 800;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 800;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+
+/*GENERIC STYLE*/
+html,
+body {
+	font-family: 'Nunito', Verdana;
+	font-size: 18px;
+	line-height: 20px;
+	width: 100%
+}
+
+div {
+
+	justify-items: flex-end;
+}
+
+h1 {
+	font-size: 54px;
+	line-height: 1.2;
+	color: var(--second-color);
+	font-family: 'Nunito';
+	font-weight: 800;
+	margin-bottom: 16px;
+}
+
+h1 span {
+	color: var(--fourth-color);
+}
+
+@media (max-width: 720px) {
+	h1 {
+		font-size: 40px;
+		line-height: 40px;
+	}
+}
+
+h2 {
+	font-size: 54px;
+	font-family: 'Nunito';
+	line-height: 1.3;
+	max-width: 800px;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+}
+
+@media (max-width: 720px) {
+	h2 {
+		font-size: 32px;
+		margin-bottom: 40px;
+	}
+}
+
+h3 {
+	font-size: 32px;
+	line-height: 1.3;
+	font-family: 'Nunito';
+	font-style: italic;
+	margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 720px) {
+	h3 {
+		font-size: 20px;
+	}
+}
+
+h4 {
+	font-size: 20px;
+	font-family: 'Nunito';
+}
+
+@media screen and (max-width: 720px) {
+	h4 {
+		font-size: 15px;
+	}
+}
+
+p {
+	font-size: 14px;
+}
+
+@media screen and (max-width: 720px) {
+	p {
+		font-size: 12px;
+	}
+}
+
+footer {
+	text-align: center;
+	color: var(--fourth-color);
+	background-color: var(--main-color);
+	position: fixed;
+	/* Set the navbar to fixed position */
+	bottom: 0;
+	/* Position the navbar at the bottom of the page */
+	width: 100%;
+}
+
+
+/*LAYOUT*/
+.container {
+	width: 80%;
+	margin: 0 auto;
+	display: grid;
+	grid-column: auto;
+}
+
+/* 1. Section */
+.section {
+	margin-bottom: 120px;
+}
+
+/* 3. Grid */
+.grid {
+	display: -ms-grid;
+	display: grid;
+	grid-gap: 35px;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.grid--2-cols {
+	-ms-grid-columns: 1fr 80px 1fr;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 720px) {
+	.grid--2-cols {
+		-ms-grid-columns: 100%;
+		grid-template-columns: 100%;
+		grid-gap: 40px;
+	}
+}
+
+/*COMPONENTS*/
+.button {
+	padding: 10px 30px;
+	display: inline-block;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+	min-width: fit-content;
+	text-align: center;
+	height: auto;
+	margin: auto;
+	background-color: var(--third-color);
+	color: var(--antiquewhite);
+}
+
+@media (max-width: 720px) {
+	.button {
+		font-size: 16px;
+		float: center;
+		width: 100%;
+		border-bottom: 1px solid lightgrey;
+		min-height: fit-content;
+	}
+}
+
+.button:hover {
+	background-color: var(--fourth-color);
+	color: var(--fifth-color);
+	-webkit-box-shadow: 3px 3px 3px 0 rgba(26, 40, 111, 0.23);
+	box-shadow: 3px 3px 3px 0 rgba(26, 40, 111, 0.23);
+}
+
+.button--xs {
+	background-color: var(--second-color);
+	color: var(--antiquewhite);
+	height: 100%;
+	margin-right: 6px;
+	transition: 0.3s;
+	text-decoration: none;
+	cursor: pointer;
+	min-width: 120px;
+}
+
+
+/*MODULES*/
+
+/* Style the top navigation */
+.topnav {
+	background-color: var(--main-color);
+	overflow: hidden;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+}
+
+/* Navbar links */
+.topnav a {
+	float: left;
+	display: block;
+	text-align: center;
+	padding: 14px 16px;
+	color: antiquewhite;
+	text-decoration: none;
+	font-size: 17px;
+	min-width: fit-content;
+	width: 100px;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+	float: right;
+	background-color: var(--dark-main-color);
+	color: antiquewhite;
+}
+
+/* Navbar links on mouse-over */
+.topnav a:hover,
+.topnav a.active:hover,
+.topnav a.split:hover,
+.topnav a.active.split:hover {
+	background-color: var(--fourth-color);
+}
+
+/* Showing the current/active navbar link */
+.topnav a.active {
+	background-color: var(--second-color);
+	color: var(--antiquewhite);
+}
+
+/* Hide the link that should open and close the header__menu-list on small screens */
+.topnav .icon {
+	display: none;
+}
+
+/* When the screen is less than 720 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 720px) {
+	.topnav {
+		position: relative;
+	}
+
+	.topnav a {
+		float: none;
+		display: block;
+		text-align: center;
+		width: 100%;
+		margin: 0;
+		padding: 14px;
+		border-bottom: lightgray 1px solid;
+	}
+
+	.topnav a:not(:first-child) {
+		display: none;
+	}
+
+	.topnav a.icon {
+		float: right;
+		text-align: center;
+		display: block;
+	}
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 720px) {
+	.topnav.responsive {
+		position: relative;
+	}
+
+	.topnav.responsive a.icon {
+		position: absolute;
+		display: block;
+		right: 0;
+		top: 0;
+		overflow: none;
+	}
+
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: center;
+	}
+}
+
+.extra {
+	background-color: var(--third-color);
+	text-align: center;
+	padding: 80px 0;
+	margin: 160px auto;
+	max-width: 80%;
+}
+
+@media screen and (max-width: 720px) {
+	.extra {
+		display: none;
+	}
+}
+
+.extra__container {
+	max-width: 80%;
+	margin: auto;
+}
+
+.extra__p {
+	font-size: 24px;
+	line-height: 40px;
+	margin-top: 32px;
+	text-align: end;
+}
+
+/* Add some padding inside the card container */
+.card__container {
+	display: flex;
+	flex-flow: row wrap;
+	width: 80%;
+	min-height: max-content;
+	margin: 10px auto;
+	justify-content: space-between;
+	align-content: center;
+	gap: 20px;
+	position: relative;
+}
+
+/* Add shadows to create the "card" effect */
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 300px;
+	align-content: space-around;
+	justify-content: space-around;
+	margin-bottom: 40px;
+	background-color: white;
+	min-height: max-content;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+	box-shadow: 0 8px 16px 0;
+	color: var(--dark-main-color);
+}
+
+.flip-card-front {
+	position: relative;
+}
+
+.flip-card-back {
+	position: relative;
+	height: 150px;
+	text-align: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.card__title {
+	justify-content: center;
+	text-align: center;
+	margin: 20px 10px auto;
+	font-weight: bold;
+}
+
+.card__container-2 {
+	display: flex;
+	flex-flow: row wrap;
+	width: 80%;
+	text-align: center;
+	margin: 60px auto;
+	justify-content: space-between;
+	align-content: space-around;
+	gap: 20px;
+}
+
+@media screen and (max-width: 1530px) {
+	.card__container {
+		display: flex;
+		justify-content: center;
+		margin-top: 1.5rem;
+		row-gap: 10px;
+		justify-content: space-between;
+		align-content: space-around;
+	}
+}
+
+button[id^="card-"][id$="-btn0"] {
+	border-radius: 100%;
+	display: inline-block;
+	padding: 2px 2px;
+	font-size: xx-large;
+	position: absolute;
+	transform: translateY(8%) translateX(8%);
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+button[id^="card-"][id$="-btn2"] {
+	text-align: center;
+	bottom: 15px;
+	display: flex;
+	justify-self: auto;
+	position: absolute;
+	transform: translateY(-20%) translateX(50%);
+	position: absolute;
+}
+
+@media screen and (max-width: 720px){
+	button[id^="card-"][id$="-btn2"] {
+		max-width: fit-content;
+	}}
+
+button[id^="card-"][id$="-btn3"] {
+	border-radius: 100%;
+	display: inline-block;
+	padding: 1px 1px;
+	font-size: x-large;
+	position: absolute;
+	transform: translateY(20%) translateX(12%);
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.fa-heart {
+	color: var(--main-color);
+}
+
+.fa-heart-o {
+	color: var(--third-color);
+}
+
+.search {
+	width: 80%;
+	padding: auto;
+	height: auto;
+	display: grid;
+	margin: 80px auto;
+	align-content: center;
+	border: red 2px solid;
+}
+
+.search__container {
+	display: flex;
+	margin: auto;
+	width: fit-content;
+	justify-content: center;
+	border: blue 2px solid;
+}
+
+@media screen and (max-width: 1057px) {
+	.search {
+		width: 100%;
+		justify-content: center;
+	
+	}
+	.search__container {
+		display:flex;
+		width: 100%;
+		justify-content: center;
+		margin: auto;
+	}
+}
+
+/* Style the search box inside the search container*/
+.search__container input[type=text] {
+	float: right;
+	margin-right: 6px;
+	height: 2.4em;
+	font-size: 17px;
+	width: 420px;
+	min-width: fit-content;
+	border: 1px lightgray solid;
+}
+
+/* When the screen is less than 850px wide, fix the search field*/
+@media screen and (max-width: 850px) {
+	.search__container button {
+		min-width: fit content;
+	}
+
+	.search__container input[type=text] {
+		display: flex;
+		margin-left: 0;
+		min-width: 100px;
+	}
+}
+
+/* When the screen is less than 720px wide, stack the the search field vertically instead of horizontally */
+@media screen and (max-width: 720px) {
+	.search {
+		margin: 0;
+		width: 100%;
+		display: flex;
+	}
+	.search__container input[type=text] {
+		float: none;
+		display: block;
+		text-align: center;
+		width: 100%;
+		margin: 0;
+	}
+
+	.search__container {
+		margin: 0;
+		float: none;
+		width: 100%;
+		display: block;
+		height: min-content;
+	}
+
+	.search__container input[type=text] {
+		border: 1px solid lightgrey;
+	}
+}
+
+.notfound {
+	margin: auto;
+	text-align: center;
+	justify-content: center;
+	color: var(--second-color);
+}
+
+.card__container-3 {
+	max-width: 80%;
+	min-height: max-content;
+	display: flex;
+	flex-flow: row wrap;
+	position: relative;
+	margin: auto;
+	margin-bottom: 40px;
+	justify-content: left;
+}
+
+.card-3 {
+	display: flex;
+	width: 165px;
+	height: 234px;
+	border-radius: 10px;
+	box-shadow: -4px 8px 10px rgba(0, 0, 0, 0.2);
+	/*   margin-right: -50px; */
+	margin-right: -50px;
+	margin-top: 30px;
+	transition: 0.3s ease-out;
+	position: relative;
+}
+
+.card-3:hover {
+	transform: translateY(-20px);
+	transition: 0.3s ease-in-out;
+	box-shadow: -4px 8px 20px;
+	color: var(--dark-main-color);
+}
+
+.card-3:hover~.card-3 {
+	position: relative;
+	left: 50px;
+	transition: 0.3s ease-in-out;
+}
+
+.card3__img {
+	width: 165px;
+	height: 234px;
+	border-radius: 10px;
+}
+
+.card-3__title {
+	color: var(--main-color);
+	background: rgba(255, 255, 255, 0.9);
+	font-weight: 400;
+	font-size: medium;
+	position: absolute;
+	min-height: 20%;
+	width: 98%;
+	bottom: 0.2rem;
+	left: 0.1rem;
+	text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+	display: none;
+	/* Hidden by default */
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%;
+	/* Full width */
+	height: 100%;
+	/* Full height */
+	overflow: auto;
+	/* Enable scroll if needed */
+	background-color: rgb(0, 0, 0);
+	/* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4);
+	/* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+}
+
+/* The Close Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.card__description p {
+	margin-top: 50px;
+	border: 2px red solid;
+}
+
+/*About*/
+.container2 {
+	width: 80%;
+	margin: auto;
+	margin-top: 15%;
+	height: max-content;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.c__container {
+	width: 50%;
+	height: 740px;
+	display: flex;
+	margin: auto;
+	align-items: center;
+	contain: content;
+}
+
+.center {
+	display: inline-flex;
+	min-height: 100%;
+	height: 740px;
+	margin-top: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: 0;
+	align-items: center;
+	width: 49%;
+	border: 2px solid var(--second-color)
+}
+
+.about__container {
+	margin: 10%;
+	justify-content: center;
+	padding: 20px;
+	text-align: justify;
+	display: flex;
+	flex-wrap: wrap;
+	contain: content;
+}
+
+.about__container p {
+	color: black;
+	justify-content: justify;
+}
+
+.about__container button {
+	color: var(--second-color)
+}
+
+.modal-content span {
+	position: absolute;
+	right: 4rem;
+	top: 3rem;
+	font-size: x-large;
+	font-weight: 900;
+	color: var(--second-color)
+}
+
+.modal-content {
+	position: relative;
+	padding: 5%;
+	margin-top: 10%;
+}
+
+.modal-content h4 {
+	color: var(--second-color);
+	margin-top: 15px;
+	font-weight: 600;
+}
+
+.modal-content a {
+	text-decoration: underline;
+	color: var(--main-color);
+	font-size: 14px;
+}
+
+/*Modifies the display when screen size is smaller than 840 pixels*/
+@media screen and (max-width: 840px) {
+	.container2 {
+		display: block;
+	}
+
+	.c__container {
+		width: 100%;
+		display: block;
+	}
+
+	.center {
+		width: 100%;
+		min-height: fit-content;
+	}
+}
+
+/*Pagination*/
+.pagination {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	height: 120px;
+	padding: 1rem 0;
+	justify-content: center;
+}
+
+.pagination ul {
+	display: flex;
+	background: var(--antiquewhite);
+	padding: 8px;
+}
+
+.pagination ul li {
+	color: var(--fifth-color);
+	list-style: none;
+	line-height: 45px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.3 ease;
+}
+
+.pagination ul li.numb {
+	height: 45px;
+	width: 45px;
+	border-radius: 50%;
+	margin: 0 3px;
+}
+
+.pagination ul li.dots {
+	font-size: 22px;
+	cursor: default;
+}
+
+.pagination ul li.btn {
+	padding: 0 20px;
+}
+
+.pagination ul li.prev {
+	border-radius: 25px 5px 5px 25px;
+}
+
+.pagination ul li.next {
+	border-radius: 5px 25px 25px 5px;
+}
+
+.pagination ul li.active {
+	color: var(--antiquewhite);
+	background: var(--fifth-color);
+}
+
+.pagination ul li.numb:hover,
+.pagination ul li.btn:hover {
+	color: var(--antiquewhite);
+	background: var(--light-fifth-color);
+	opacity: 50%;
+}
+
+/*Colors*/
+:root {
+	--antiquewhite: #faebd7;
+	/*background*/
+
+	--light-main-color: #3637A8;
+	--dark-main-color: #2B2B87;
+	--main-color: #3E3EC0;
+
+	--light-second-color: #82163A;
+	--dark-second-color: #6C122E;
+	--second-color: #AE1E4A;
+
+	--light-third-color: #1A8598;
+	--dark-third-color: #125E6C;
+	--third-color: #21AAC3;
+
+	--light-fourth-color: #73AF1D;
+	--dark-fourth-color: #568315;
+	--fourth-color: #8FDA24;
+
+	--light-fifth-color: #821A98;
+	--dark--fifth-color: #5C126C;
+	--fifth-color: #A621C3;
+}
